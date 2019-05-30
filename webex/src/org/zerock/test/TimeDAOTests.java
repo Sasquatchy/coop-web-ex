@@ -1,3 +1,4 @@
+
 package org.zerock.test;
 
 import org.junit.Before;
@@ -15,7 +16,7 @@ public class TimeDAOTests {
 	//@before 테스트 진행하기전 실행하는 코드
 	@Before
 	public void ready() {
-		dao = new TimeDAO();
+		TimeDAO dao = new TimeDAO();
 		
 		log.info(dao);
 	}
