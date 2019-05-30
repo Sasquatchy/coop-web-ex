@@ -5,6 +5,10 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.zerock.domain.BoardVO;
 
+import lombok.Data;
+
+
+@Data
 public class BoardDAO {
 	
 	private static final String PRE = "org.zerock.dao.";
@@ -20,16 +24,29 @@ public class BoardDAO {
 		
 		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession()){
 		
-			result = session.selectOne( PRE + mapperName + ".List");
+			result = session.selectList( PRE + mapperName + ".getList");
 			
 		} catch (Exception e) {
 			throw e;
 		}
-
+		
 		
 		return result;
 	}
 	
+	public int TotalCount() {
+		
+		int result=0;
+		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession()){
+			
+			result = session.selectOne( PRE + mapperName + ".totalcount");
+			
+		} catch (Exception e) {
+			throw e;
+		}
+		
+		return result;
+	}
 	
 	
 }

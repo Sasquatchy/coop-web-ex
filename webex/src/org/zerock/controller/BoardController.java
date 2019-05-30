@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.zerock.domain.BoardVO;
 import org.zerock.service.BoardService;
 
-@WebServlet("/board/list")
+@WebServlet("/board/*")
 public class BoardController extends AbstractConroller {
 
 	
@@ -18,10 +18,11 @@ public class BoardController extends AbstractConroller {
 	public String listGET(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		
-		List<BoardVO> list;
+		List<BoardVO> list=null;
 		
-		list=service.getL();
+		list= service.getL();
 		
+	
 		request.setAttribute("list", list);
 		
 		

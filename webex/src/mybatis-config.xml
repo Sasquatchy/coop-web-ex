@@ -16,6 +16,6 @@
   </environments>
   <mappers>
     <mapper resource="org/zerock/dao/TimeMapper.xml"/>
-	 <mapper resource="org/zerock/dao/BoardMapper.xml"/>
+	<mapper resource="org/zerock/dao/BoardMapper.xml"/>
   </mappers>
 </configuration>
