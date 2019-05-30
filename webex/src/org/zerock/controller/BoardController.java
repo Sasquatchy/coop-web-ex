@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
 @WebServlet("/board/*")
@@ -20,8 +21,14 @@ public class BoardController extends AbstractConroller {
 		
 		List<BoardVO> list=null;
 		
-		list= service.getL();
+		list= service.getL(1);
 		
+		int current = getInt("pm", request, 1);
+				
+		int total = service.TotalCount();
+		
+		
+		request.setAttribute("page", new PageDTO(current,total));
 	
 		request.setAttribute("list", list);
 		

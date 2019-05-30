@@ -13,10 +13,9 @@ public class BoardService {
 	BoardDAO dao = new BoardDAO();
 	
 	
-	public List<BoardVO> getL(){
+	public List<BoardVO> getL(int page){
 		
-		System.out.println(dao.getList());
-		return dao.getList();
+		return dao.getList(page);
 	}
 	
 	public int TotalCount() {
