@@ -1,13 +1,33 @@
 package org.zerock.controller;
 
+import java.util.List;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.zerock.domain.BoardVO;
+import org.zerock.service.BoardService;
+
+@WebServlet("/board/list")
 public class BoardController extends AbstractConroller {
 
 	
+	BoardService service = new BoardService();
 	
-	
-	public String ListGET() {
+	public String listGET(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		return "/views/board";
+		
+		List<BoardVO> list;
+		
+		list=service.getL();
+		
+		request.setAttribute("list", list);
+		
+		
+		
+		
+		return "views/board/list";
 		
 	}
 	
