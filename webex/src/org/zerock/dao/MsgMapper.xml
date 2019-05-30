@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.dao.MsgMapper">
+  <select id="readMsg" resultType="org.zerock.domain.MsgVO" parameterType="int">
+    select * from tbl_team_msg where mno = #{mno}
+  </select>
+  
+  <insert id="sendMsg" parameterType="org.zerock.domain.MsgVO" >
+  
+  	insert into tbl_team_msg(mno, sender, whom, msg, gubun)
+  	values (seq_team_msg.nextval, #{sender}, #{whom}, #{msg}, #{gubun})
+ 	</insert>
+ 	
+ 	<select id="getList" resultType="org.zerock.domain.MsgVO">
+ 	  select * from tbl_team_msg where mno>0 order by mno desc
+ 	</select>
+  	
+</mapper>
