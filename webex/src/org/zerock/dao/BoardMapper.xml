@@ -8,7 +8,7 @@
     select bno,title, content, writer from(
 	select rownum rw, bno, title, content, writer from tbl_board
 	where bno>0 and rownum <= (#{page}*10))
-	where rw > ((#{page}-1)*10);
+	where rw > (#{page}-1)*10;
 	]]>		
   </select>
   
