@@ -17,14 +17,14 @@ public class BoardDAO {
 	BoardVO vo = new BoardVO();
 	
 	
-	public List<BoardVO> getList(){
+	public List<BoardVO> getList(int page){
 		
 		
 		List<BoardVO> result = null;
 		
 		try (SqlSession session = MyBatisLoader.sqlSessionFactory.openSession()){
 		
-			result = session.selectList( PRE + mapperName + ".getList");
+			result = session.selectList( PRE + mapperName + ".getList",page);
 			
 		} catch (Exception e) {
 			throw e;
