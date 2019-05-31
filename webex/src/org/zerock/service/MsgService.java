@@ -13,11 +13,15 @@ public class MsgService {
 		return dao.sendMsg(vo);
 	}
 	
-	public List<MsgVO> list() {
-		return dao.getList();
+	public List<MsgVO> listPage(Integer page) {
+		return dao.getListPage(page);
 	}
 	
 	public MsgVO readMessage(Integer mno) {
 		return dao.readMsg(mno);
+	}
+	
+	public int getTotalMsg() {
+		return dao.totalMsg();
 	}
 }

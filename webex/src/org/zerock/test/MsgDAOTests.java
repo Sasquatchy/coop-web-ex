@@ -16,7 +16,7 @@ public class MsgDAOTests {
 	public void testGetList() {
 		MsgDAO dao = new MsgDAO();
 		
-		dao.getList().forEach(vo -> {
+		dao.getListPage(1).forEach(vo -> {
 		log.info(vo);
 		});
 		

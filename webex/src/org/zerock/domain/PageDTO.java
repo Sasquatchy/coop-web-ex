@@ -12,7 +12,7 @@ public class PageDTO {
 		this.current = current;
 		this.total = total;
 		
-		int temp_en = (int)Math.ceil(current/10.0);
+		int temp_en = (int)Math.ceil(current/10.0) * 10;
 		
 		start = temp_en-9;
 		

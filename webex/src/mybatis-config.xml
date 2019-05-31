@@ -16,11 +16,7 @@
   </environments>
   <mappers>
     <mapper resource="org/zerock/dao/TimeMapper.xml"/>
-<<<<<<< HEAD
 	<mapper resource="org/zerock/dao/BoardMapper.xml"/>
-=======
-	 <mapper resource="org/zerock/dao/BoardMapper.xml"/>
 	 <mapper resource="org/zerock/dao/MsgMapper.xml"/>
->>>>>>> refs/remotes/origin/master
   </mappers>
 </configuration>

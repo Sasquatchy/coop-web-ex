@@ -15,7 +15,7 @@ import lombok.ToString;
 public class MsgVO {
 
 	private int mno;
-	private String sender, whom, msg, Gubun;
+	private String sender, whom, msg, gubun;
 	
 	private Date regdate;
 }

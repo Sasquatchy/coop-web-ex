@@ -11,7 +11,7 @@ import org.zerock.domain.PageDTO;
 import org.zerock.service.BoardService;
 
 @WebServlet("/board/*")
-public class BoardController extends AbstractConroller {
+public class BoardController extends AbstractController {
 
 	
 	BoardService service = new BoardService();

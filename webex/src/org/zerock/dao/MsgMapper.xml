@@ -6,15 +6,40 @@
   <select id="readMsg" resultType="org.zerock.domain.MsgVO" parameterType="int">
     select * from tbl_team_msg where mno = #{mno}
   </select>
-  
+
   <insert id="sendMsg" parameterType="org.zerock.domain.MsgVO" >
   
   	insert into tbl_team_msg(mno, sender, whom, msg, gubun)
   	values (seq_team_msg.nextval, #{sender}, #{whom}, #{msg}, #{gubun})
  	</insert>
  	
- 	<select id="getList" resultType="org.zerock.domain.MsgVO">
- 	  select * from tbl_team_msg where mno>0 order by mno desc
- 	</select>
+ 	<!-- 	private int mno;
+	private String sender, whom, msg, gubun;
+	private Date regdate;
+} -->
+ 	
+ 	
+ 	<select id="getListPage" parameterType="Integer" resultType="org.zerock.domain.MsgVO">
+	  <![CDATA[
+		select
+		    mno, sender, whom, msg, regdate
+		from (
+		    select /*+INDEX_DESC(TBL_TEAM_MSG PK_TEAM_MSG )*/
+		           rownum rn, mno, sender, whom, msg, regdate
+		    from TBL_TEAM_MSG
+		    where mno >0 and rownum <=( #{page}* 10)
+		    
+		    )
+		where
+		    rn> (#{page}-1) * 10
+		    
+	  ]]> 	
+	  </select>
+	  
+	  <select id="getTotalMsg" resultType="int">
+	  	select count(mno)
+	  	from tbl_team_msg
+	  	where mno >0
+	  	</select>
   	
 </mapper>
